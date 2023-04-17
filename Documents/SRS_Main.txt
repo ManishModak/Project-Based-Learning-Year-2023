@@ -1,9 +1,9 @@
 -----------------------------------------
-#Software Requirement 
-#Specifications
-#For
-#Face Detection 
-#System
+Software Requirement 
+Specifications
+For
+Face Detection 
+System
 -----------------------------------------
 
 Project By -
@@ -33,23 +33,21 @@ At the time of the entry of a student, Admin will scan the face to mark the entr
 The program will also Give a list of students that are out after curfew.
 Security guards and Hostel Warden as Admin and Hostilites (Hostel Students) are expected users that will engage with the system.
 1.3 Definitions and acronyms
-Admin  - Someone who is given specific permissions for managing and controlling the system.
-Users  - Hostel Students.
-SRS    - Software Requirement Specifications
-
+Admin  - Someone who is given specific permissions for managing 		        and controlling the system.
+Users   - Hostel Students.
+SRS       - Software Requirement Specifications
 2. System Overview
-4.1 Functional Requirements
-5.1.1 Storing new faces in the database in case of new entry for new user.
-6.1.2 Making log for students entering/exiting from the campus after each scan.
-7.1.3 Report a late entry after time out. 
-8.1.4 Automatically turn on the flashlight if it is dark.
-9.1.5 Generate a report of daily operations for the admin.
-10.2 Non-Functional Requirements
-
-11.2.1 It should scan face in under 2 seconds.
-12.2.2 Give a prompt if the system does not recognize a face.
-13.2.3 The system should be able to distinguish between twins.  
-14.3 System Requirements
-15.3.1 The device running the application should have internet speed of 100 KB/s.
-16.3.2 While scanning a face, the face should be in 2-meter range. 
-17.3.3 The device running the application should have a high-resolution camera.
+2.1 Functional Requirements
+2.1.1 Storing new faces in the database in case of new entry for new user.
+2.1.2 Making log for students entering/exiting from the campus after each scan.
+2.1.3 Report a late entry after time out. 
+2.1.4 Automatically turn on the flashlight if it is dark.
+2.1.5 Generate a report of daily operations for the admin.
+2.2 Non-Functional Requirements
+2.2.1 It should scan face in under 2 seconds.
+2.2.2 Give a prompt if the system does not recognize a face.
+2.2.3 The system should be able to distinguish between twins.  
+2.3 System Requirements
+2.3.1 The device running the application should have internet speed of 100 KB/s.
+2.3.2 While scanning a face, the face should be in 2-meter range. 
+2.3.3 The device running the application should have a high-resolution camera.
