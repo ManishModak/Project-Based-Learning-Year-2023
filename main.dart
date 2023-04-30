@@ -7,102 +7,95 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Login Page',
-      home: LoginPage(),
-    );
-  }
-}
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
-
-  late String _email;
-  late String _password;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 80.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+            title: const Text("Entry System"),
+            centerTitle: true,
+            backgroundColor: Colors.red[600],
+            leading: const Icon(Icons.menu)),
+        body: Center(
+          child: Table(
+            border: TableBorder.all(width: 1.0, color: Colors.white),
+            children: const [
+              TableRow(
+                children: [
+                  TableCell(
+                    child: Text('   Room',
+                        style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
-                ),
-                const SizedBox(height: 20.0),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    hintText: 'Email',
+                  TableCell(
+                    child: Text('Name',
+                        style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _email = value!;
-                  },
-                ),
-                const SizedBox(height: 20.0),
-                TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
+                  TableCell(
+                    child: Text("Out Time",
+                        style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _password = value!;
-                  },
-                ),
-                const SizedBox(height: 40.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    onPrimary: Colors.white,
+                  TableCell(
+                    child: Text("In Time",
+                        style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState?.save();
-                      // Perform login with email and password
-                    }
-                  },
-                  child: const Text(
-                    'LOGIN',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  TableCell(
+                    child: Text('   207',
+                        style: TextStyle(color: Colors.green, fontSize: 20.0)),
                   ),
-                ),
-              ],
-            ),
+                  TableCell(
+                    child: Text('Manish',
+                        style: TextStyle(color: Colors.green, fontSize: 20.0)),
+                  ),
+                  TableCell(
+                    child: Text('6:03',
+                        style: TextStyle(color: Colors.green, fontSize: 20.0)),
+                  ),
+                  TableCell(
+                      child: Text('7:41',
+                          style:
+                              TextStyle(color: Colors.green, fontSize: 20.0)))
+                ],
+              ),
+              TableRow(
+                children: [
+                  TableCell(
+                    child: Text('   103',
+                        style: TextStyle(color: Colors.red, fontSize: 20.0)),
+                  ),
+                  TableCell(
+                    child: Text('Raj',
+                        style: TextStyle(color: Colors.red, fontSize: 20.0)),
+                  ),
+                  TableCell(
+                    child: Text('7:40',
+                        style: TextStyle(color: Colors.red, fontSize: 20.0)),
+                  ),
+                  TableCell(
+                    child: Text('',
+                        style: TextStyle(color: Colors.red, fontSize: 20.0)),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
+        floatingActionButton: Container(
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+          ),
+          child: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.white,
+            child: const Icon(Icons.add, color: Colors.blue),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
