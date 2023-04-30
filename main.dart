@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
 
 void main() {
   runApp(const MyApp());
@@ -33,11 +32,11 @@ class MyApp extends StatelessWidget {
                         style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
                   TableCell(
-                    child: Text("In Time",
+                    child: Text("Out Time",
                         style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
                   TableCell(
-                    child: Text("Out Time",
+                    child: Text("In Time",
                         style: TextStyle(color: Colors.blue, fontSize: 20.0)),
                   ),
                 ],
