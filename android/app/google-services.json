@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "733231722253",
+    "firebase_url": "https://mat-security-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mat-security",
+    "storage_bucket": "mat-security.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733231722253:android:edc090dd25c098ae71ca44",
+        "android_client_info": {
+          "package_name": "com.example.mat_security"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733231722253-mpglv7n1rifi1dds54qmu23c45sdla2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZI0QWIvWqwB1grw2DIN7Bp7CfnGrrfHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733231722253-mpglv7n1rifi1dds54qmu23c45sdla2t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
