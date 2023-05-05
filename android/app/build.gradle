@@ -58,16 +58,3 @@ android {
 flutter {
     source '../..'
 }
-
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-
-    dependencies {
-        // Other dependencies...
-        classpath 'com.google.gms:google-services:4.3.10'
-    }
-}
-
