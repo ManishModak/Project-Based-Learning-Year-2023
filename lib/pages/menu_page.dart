@@ -65,7 +65,9 @@ class _MenuState extends State<Menu> {
           Card(
             color: Colors.black87,
             child: ListTile(
-              onTap: (){},
+              onTap: (){
+                Navigator.pushNamed(context, '/Log');
+              },
               title: const Center(
                 child: Text(
                   "Daily In/Out List",
