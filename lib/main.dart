@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mat_security/pages/home_page.dart';
 import 'package:mat_security/pages/login_page.dart';
@@ -11,24 +14,41 @@ void main() async {
 
   QuerySnapshot snapshot =
   await FirebaseFirestore.instance.collection("users").get();
-  print("Number of documents: ${snapshot.docs.length}");
+  if (kDebugMode) {
+    print("Number of documents: ${snapshot.docs.length}");
+  }
 
-  QuerySnapshot snapshot1 = await FirebaseFirestore.instance.collection("users").get();
-  snapshot1.docs.forEach((DocumentSnapshot doc) {
-    print("Document ID: ${doc.id}");
-  });
+  DocumentSnapshot snapshot1 = await FirebaseFirestore.instance.collection("users").doc("pUgp2dqmuCu6zU04djkx").get();
+
+  Map<String, dynamic> data = snapshot1.data() as Map<String, dynamic>;
+  String name = data['name'];
+  log(name);
 
   QuerySnapshot snapshot3 = await FirebaseFirestore.instance.collection("users").get();
-  snapshot3.docs.forEach((DocumentSnapshot doc) {
+  for (var doc in snapshot3.docs) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    int name = data['mobileNo'];
-    print("Document Name: $name");
-  });
+    if(data['branch']=="IT"){
+      log("message");
+      log(doc.id);
+    }
+    String id = data['id'];
+    String name = data['name'];
+    String room = data['roomNo'];
+    String branch = data['branch'];
+    int mobile = data['mobileNo'];
+    if (kDebugMode) {
+      print("Id:        $id\n"
+          "Name:      $name\n"
+          "Room No:   $room\n"
+          "Branch:    $branch\n"
+          "Mobile No: $mobile");
+    }
+  }
 
 
 
   runApp(MaterialApp(
-    initialRoute: '/home', // Set the initial route to '/login'
+    initialRoute: '/menu', // Set the initial route to '/login'
     routes: {
       // Route for the loading page
       '/home': (context) => const Home(), // Route for the home page
