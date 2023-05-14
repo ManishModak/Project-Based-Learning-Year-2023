@@ -10,7 +10,7 @@ void main() async {
   await Firebase.initializeApp();
 
   DatabaseServices student = DatabaseServices();
-  student.updateRoom(id: "1101", newRoom: "330");
+  student.deleteStudent(id: "1102");
 
   runApp(MaterialApp(
     initialRoute: '/menu', // Set the initial route to '/login'

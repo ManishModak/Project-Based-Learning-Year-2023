@@ -39,60 +39,30 @@ class DatabaseServices {
   DatabaseServices student = DatabaseServices();
   student.updateRoom(id: "1101", newRoom: "330");
    */
-  Future<void> updateRoom({required String id, required String newRoom}) async{
+  Future<void> updateRoom({required String id, required String room}) async{
     await _fire.collection("users").doc(id).update({
-      "roomNo": newRoom
+      "roomNo": room
     });
   }
 
-  /*Map<String, dynamic> std_data = {
-    "id": "1102",
-    "name": "Tanny",
-    "roomNo": "210",
-    "branch": "IT",
-    "mobileNo":"9645764765"
-  };
-
-  await _fire.collection("users").doc(std_data['id']).set(std_data);
-
-  QuerySnapshot shot = await _fire.collection("users").get();
-  for(var doc in shot.docs){
-    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    log(data['name']);
+  /*
+  How to use example
+  DatabaseServices student = DatabaseServices();
+  student.updateBranch(id: "1101", branch: "CS");
+   */
+  Future<void> updateBranch({required String id, required String branch}) async{
+    await _fire.collection("users").doc(id).update({
+      "branch": branch
+    });
   }
 
-  QuerySnapshot snapshot =
-  await _fire.collection("users").get();
-  if (kDebugMode) {
-    print("Number of documents: ${snapshot.docs.length}");
+  /*
+  How to use example
+  DatabaseServices student = DatabaseServices();
+  student.deleteStudent(id: "1102");
+   */
+  Future<void> deleteStudent({required String id}) async{
+    await _fire.collection("users").doc(id).delete();
   }
-
-  DocumentSnapshot snapshot1 = await _fire.collection("users").doc("pUgp2dqmuCu6zU04djkx").get();
-
-  Map<String, dynamic> data = snapshot1.data() as Map<String, dynamic>;
-  String name = data['name'];
-  log(name);
-
-  QuerySnapshot snapshot3 = await _fire.collection("users").get();
-  for (var doc in snapshot3.docs) {
-    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    if(data['branch']=="IT"){
-      log("message");
-      log(doc.id);
-    }
-    String id = data['id'];
-    String name = data['name'];
-    String room = data['roomNo'];
-    String branch = data['branch'];
-    int mobile = data['mobileNo'];
-    if (kDebugMode) {
-      print("Id:        $id\n"
-          "Name:      $name\n"
-          "Room No:   $room\n"
-          "Branch:    $branch\n"
-          "Mobile No: $mobile");
-    }
-  }*/
-
 
 }
