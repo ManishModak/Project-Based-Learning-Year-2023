@@ -12,19 +12,38 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  /*
+ FirebaseFirestore _fire = FirebaseFirestore.instance;
+  
+  Map<String, dynamic> std_data = {
+    "id": "1102",
+    "name": "Tanny",
+    "roomNo": "210",
+    "branch": "IT",
+    "mobileNo":9645764765
+  };
+  
+  await _fire.collection("users").add(std_data);
+
+  QuerySnapshot shot = await _fire.collection("users").get();
+  for(var doc in shot.docs){
+    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    log(data['name']);
+  }
+
   QuerySnapshot snapshot =
-  await FirebaseFirestore.instance.collection("users").get();
+  await _fire.collection("users").get();
   if (kDebugMode) {
     print("Number of documents: ${snapshot.docs.length}");
   }
 
-  DocumentSnapshot snapshot1 = await FirebaseFirestore.instance.collection("users").doc("pUgp2dqmuCu6zU04djkx").get();
+  DocumentSnapshot snapshot1 = await _fire.collection("users").doc("pUgp2dqmuCu6zU04djkx").get();
 
   Map<String, dynamic> data = snapshot1.data() as Map<String, dynamic>;
   String name = data['name'];
   log(name);
 
-  QuerySnapshot snapshot3 = await FirebaseFirestore.instance.collection("users").get();
+  QuerySnapshot snapshot3 = await _fire.collection("users").get();
   for (var doc in snapshot3.docs) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
     if(data['branch']=="IT"){
@@ -43,7 +62,7 @@ void main() async {
           "Branch:    $branch\n"
           "Mobile No: $mobile");
     }
-  }
+  }*/
 
 
 
