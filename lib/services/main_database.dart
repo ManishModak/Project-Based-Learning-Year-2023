@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class DatabaseServices {
+class MainDatabase {
   final FirebaseFirestore _fire = FirebaseFirestore.instance;
 
   /*
   How to use example
-  DatabaseServices Student = DatabaseServices();
+  MainDatabase Student = MainDatabase();
   Student.addStudent(id:"1101", name:"aman", room:"103", branch:"IT", mobile:"9756547687");
   */
   Future<void> addStudent({required String id,required String name,required String room,required String branch,required String mobile}) async {
@@ -21,7 +21,7 @@ class DatabaseServices {
 
   /*
   How to use example
-  DatabaseServices Student = DatabaseServices();
+  MainDatabase Student = MainDatabase();
   Map<String, dynamic> data;
   data = await Student.getInfo(id: "1101");
   if(kDebugMode){
@@ -36,7 +36,7 @@ class DatabaseServices {
 
   /*
   How to use example
-  DatabaseServices student = DatabaseServices();
+  MainDatabase student = MainDatabase();
   student.updateRoom(id: "1101", newRoom: "330");
    */
   Future<void> updateRoom({required String id, required String room}) async{
@@ -47,7 +47,7 @@ class DatabaseServices {
 
   /*
   How to use example
-  DatabaseServices student = DatabaseServices();
+  MainDatabase student = MainDatabase();
   student.updateBranch(id: "1101", branch: "CS");
    */
   Future<void> updateBranch({required String id, required String branch}) async{
@@ -58,7 +58,7 @@ class DatabaseServices {
 
   /*
   How to use example
-  DatabaseServices student = DatabaseServices();
+  MainDatabase student = MainDatabase();
   student.deleteStudent(id: "1102");
    */
   Future<void> deleteStudent({required String id}) async{

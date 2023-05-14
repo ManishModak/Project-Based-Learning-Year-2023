@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:mat_security/pages/home_page.dart';
 import 'package:mat_security/pages/login_page.dart';
 import 'package:mat_security/pages/menu_page.dart';
-import 'package:mat_security/services/main_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  DatabaseServices student = DatabaseServices();
-  student.deleteStudent(id: "1102");
+
 
   runApp(MaterialApp(
     initialRoute: '/menu', // Set the initial route to '/login'
