@@ -8,8 +8,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-
-
   runApp(MaterialApp(
     initialRoute: '/menu', // Set the initial route to '/login'
     routes: {
