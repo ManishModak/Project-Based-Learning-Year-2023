@@ -7,10 +7,10 @@ class Menu extends StatefulWidget {
   State<Menu> createState() => _MenuState();
 }
 
-class _MenuState extends State<Menu> {
+class _MenuState extends State<Menu>  {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
@@ -51,7 +51,9 @@ class _MenuState extends State<Menu> {
           Card(
             color: Colors.black87,
             child: ListTile(
-              onTap: (){},
+              onTap: (){
+                //Navigator.pushNamed(context, "/info");
+              },
               title: const Center(
                 child: Text(
                   "All Hostelite List",
