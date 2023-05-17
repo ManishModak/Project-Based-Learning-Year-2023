@@ -15,14 +15,16 @@ class LogDatabase{
   Future<void> addLog({required String id}) async {
     DateTime currentTime = DateTime.now();
     String formattedTime = DateFormat('HH:mm:ss').format(currentTime);
+    String formattedDate = DateFormat('yyyy:MM:dd').format(currentTime);
+
     Map<String, dynamic> data;
 
-    QuerySnapshot snapshot = await _fire.collection("daily log").get();
+    QuerySnapshot snapshot = await _fire.collection(formattedDate).get();
 
     for (var doc in snapshot.docs) {
       Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
       if (data['id'] == id) {
-        await _fire.collection("daily log").doc(doc.id).update({
+        await _fire.collection(formattedDate).doc(doc.id).update({
           "inTime": formattedTime,
         });
         return;
@@ -40,6 +42,6 @@ class LogDatabase{
       "outTime": formattedTime,
       "inTime":null
     };
-    await _fire.collection("daily log").add(stdData);
+    await _fire.collection(formattedDate).add(stdData);
   }
 }
