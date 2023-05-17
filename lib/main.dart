@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:mat_security/pages/home_page.dart';
 import 'package:mat_security/pages/login_page.dart';
 import 'package:mat_security/pages/menu_page.dart';
+import 'package:mat_security/pages/new_hostelite_page.dart';
 //import 'package:mat_security/services/log_database.dart';
 
 void main() async {
@@ -13,12 +14,13 @@ void main() async {
   await Firebase.initializeApp();
 
   runApp(MaterialApp(
-    initialRoute: '/menu', // Set the initial route to '/login'
+    initialRoute: '/hostel', // Set the initial route to '/login'
     routes: {
       // Route for the loading page
       '/home': (context) => const Home(), // Route for the home page
       '/login': (context) => const Login(), // Route for the login page
       '/menu': (context) => const Menu(), // Route for the menu page
+      '/hostel': (context) => const NewStudent(),
     },
   ));
 }
