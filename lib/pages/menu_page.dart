@@ -37,7 +37,9 @@ class _MenuState extends State<Menu>  {
           Card(
             color: Colors.black87,
             child: ListTile(
-              onTap: (){},
+              onTap: (){
+                Navigator.pushNamed(context, "/Hostel");
+              },
               title: const Center(
                 child: Text(
                   "New Hostelite",
@@ -51,9 +53,7 @@ class _MenuState extends State<Menu>  {
           Card(
             color: Colors.black87,
             child: ListTile(
-              onTap: (){
-                //Navigator.pushNamed(context, "/info");
-              },
+              onTap: (){},
               title: const Center(
                 child: Text(
                   "All Hostelite List",
