@@ -87,7 +87,7 @@ class _LoginState extends State<Login> {
                       onPressed: () async{
                         if(_formKey.currentState!.validate()){
                           setState(() => loading = true);
-                          dynamic result = await _auth.signInWithEmailAndPassword(email, password);
+                          dynamic result = await _auth.signInWithEmailAndPassword(email.trim(), password);
                           if(result == null){
                             setState(() {
                               loading = false ;
@@ -110,7 +110,7 @@ class _LoginState extends State<Login> {
                       onPressed: () async {
                         if(_formKey.currentState!.validate()){
                           setState(() => loading = true);
-                          dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                          dynamic result = await _auth.registerWithEmailAndPassword(email.trim(), password);
                           if(result == null){
                             setState(() {
                               loading = false ;

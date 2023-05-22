@@ -11,13 +11,13 @@ void main() async {
   await Firebase.initializeApp();
 
   runApp(MaterialApp(
-    initialRoute: '/menu', // Set the initial route to '/login'
+    initialRoute: '/newStudent', // Set the initial route to '/login'
     routes: {
       // Route for the loading page
       '/home': (context) => const Home(), // Route for the home page
       '/login': (context) => const Login(), // Route for the login page
       '/menu': (context) => const Menu(), // Route for the menu page
-      '/hostel': (context) => const NewStudent(), //Route for the New Hostelite page
+      '/newStudent': (context) => const NewStudent(), //Route for the New Hostelite page
     },
   ));
 }
