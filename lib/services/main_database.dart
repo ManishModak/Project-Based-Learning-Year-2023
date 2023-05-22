@@ -8,13 +8,15 @@ class MainDatabase {
   MainDatabase Student = MainDatabase();
   Student.addStudent(id:"1101", name:"aman", room:"103", branch:"IT", mobile:"9756547687");
   */
-  Future<void> addStudent({required String id,required String name,required String room,required String branch,required String mobile}) async {
+  Future<void> addStudent({required String id,required String name,required String room,
+                            required String branch,required String mobile, required String url}) async {
     Map<String, dynamic> stdData = {
       "id": id,
       "name": name,
       "roomNo": room,
       "branch": branch,
-      "mobileNo":mobile
+      "mobileNo":mobile,
+      "imageUrl":url
     };
     await _fire.collection("users").doc(stdData['id']).set(stdData);
   }

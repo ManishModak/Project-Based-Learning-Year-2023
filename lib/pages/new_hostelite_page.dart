@@ -1,4 +1,10 @@
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mat_security/services/main_database.dart';
 
 class NewStudent extends StatefulWidget {
@@ -10,14 +16,13 @@ class NewStudent extends StatefulWidget {
 
 class _NewStudentState extends State<NewStudent> {
 
-
-
 final TextEditingController _idController = TextEditingController();
 final TextEditingController _nameController = TextEditingController();
 final TextEditingController _roomNoController = TextEditingController();
 final TextEditingController _branchController = TextEditingController();
 final TextEditingController _mobileNoController = TextEditingController();
 
+  File? studentPic;
 @override
 void dispose() {
   _idController.dispose();
@@ -28,7 +33,7 @@ void dispose() {
   super.dispose();
 }
 
-void _submitForm() {
+void _submitForm() async {
   String id = _idController.text;
   String name = _nameController.text;
   String roomNo = _roomNoController.text;
@@ -36,7 +41,12 @@ void _submitForm() {
   String mobileNo = _mobileNoController.text;
 
   MainDatabase student = MainDatabase();
-  student.addStudent(id: id, name: name, room: roomNo, branch: branch, mobile: mobileNo);
+
+  UploadTask uploadTask = FirebaseStorage.instance.ref().child("pictures").child(id).child(id).putFile(studentPic!);
+  TaskSnapshot taskSnapshot = await uploadTask;
+  String downloadUrl =  await taskSnapshot.ref.getDownloadURL();
+
+  student.addStudent(id: id, name: name, room: roomNo, branch: branch, mobile: mobileNo, url: downloadUrl);
 
   // Clear the text fields
   _idController.clear();
@@ -89,6 +99,38 @@ Widget build(BuildContext context) {
             onPressed: _submitForm,
             child: const Text('Submit'),
           ),
+          Container(
+            alignment: Alignment.centerLeft,
+            child:  Row(
+              children: [
+                CupertinoButton(
+                  pressedOpacity: 0.5,
+                  onPressed: () async {
+                    XFile? selectedImage = await ImagePicker().pickImage(source: ImageSource.camera);
+
+                      if(selectedImage != null){
+                        File convertedImage = File(selectedImage.path);
+                        setState(() {
+                          studentPic = convertedImage;
+                        });
+                      }
+                      else{
+                        if (kDebugMode) {
+                          print("Image not selected");
+                        }
+                      }
+                    },
+                  padding: EdgeInsets.zero,
+                  child: CircleAvatar(
+                    backgroundImage: (studentPic != null) ? FileImage(studentPic!) : null,
+                    radius: 40,
+                    backgroundColor: Colors.grey,
+                  ),
+                ),
+              ],
+            )
+
+          )
         ],
       ),
     ),

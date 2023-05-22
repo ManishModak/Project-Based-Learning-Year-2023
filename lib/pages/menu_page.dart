@@ -38,7 +38,7 @@ class _MenuState extends State<Menu>  {
             color: Colors.black87,
             child: ListTile(
               onTap: (){
-                Navigator.pushNamed(context, "/Hostel");
+                Navigator.pushNamed(context, "/hostel");
               },
               title: const Center(
                 child: Text(
