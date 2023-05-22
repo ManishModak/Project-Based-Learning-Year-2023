@@ -52,7 +52,8 @@ Widget build(BuildContext context) {
         elevation: 0,
       ),
       body: Container(
-        color: Colors.black45,
+        padding:const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+        color: Colors.grey[800],
         child: Column(
           children: [
             Center(
@@ -74,7 +75,7 @@ Widget build(BuildContext context) {
                 },
                 child: CircleAvatar(
                   backgroundImage: (studentPic != null) ? FileImage(studentPic!) : null,
-                  radius: 40,
+                  radius: 80,
                   backgroundColor: Colors.grey,
                 ),
               ),
