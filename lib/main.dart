@@ -1,13 +1,10 @@
-//import 'dart:developer';
-//import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-//import 'package:intl/intl.dart';
 import 'package:mat_security/pages/home_page.dart';
 import 'package:mat_security/pages/login_page.dart';
 import 'package:mat_security/pages/menu_page.dart';
 import 'package:mat_security/pages/new_hostelite_page.dart';
-//import 'package:mat_security/services/log_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +17,7 @@ void main() async {
       '/home': (context) => const Home(), // Route for the home page
       '/login': (context) => const Login(), // Route for the login page
       '/menu': (context) => const Menu(), // Route for the menu page
-      '/hostel': (context) => const NewStudent(),
+      '/hostel': (context) => const NewStudent(), //Route for the New Hostelite page
     },
   ));
 }
