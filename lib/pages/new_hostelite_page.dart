@@ -66,38 +66,43 @@ Widget build(BuildContext context) {
           child: Column(
             children: [
               Center(
-                child: CupertinoButton(
-                  onPressed: () async {
-                    percentage = 0;
-                    XFile? selectedImage = await ImagePicker().pickImage(source: ImageSource.camera);
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 180,
+                      height: 180,
+                      child: CircularProgressIndicator(
+                        value: percentage,
+                        backgroundColor: Colors.black45,
+                        strokeWidth: 14,
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                      ),
+                    ),
+                    CupertinoButton(
+                      onPressed: () async {
+                        percentage = 0;
+                        XFile? selectedImage = await ImagePicker().pickImage(source: ImageSource.camera);
 
-                    if(selectedImage != null){
-                      File convertedImage = File(selectedImage.path);
-                      setState(() {
-                        studentPic = convertedImage;
-                      });
-                    }
-                    else{
-                      if (kDebugMode) {
-                        print("Image not selected");
-                      }
-                    }
-                  },
-                  child: CircleAvatar(
-                    backgroundImage: (studentPic != null) ? FileImage(studentPic!) : null,
-                    radius: 80,
-                    backgroundColor: Colors.grey,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-                width: 500,
-                child: LinearProgressIndicator(
-                  value: percentage,
-                  backgroundColor: Colors.grey,
-                  minHeight: 10.0,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                        if(selectedImage != null){
+                          File convertedImage = File(selectedImage.path);
+                          setState(() {
+                            studentPic = convertedImage;
+                          });
+                        }
+                        else{
+                          if (kDebugMode) {
+                            print("Image not selected");
+                          }
+                        }
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: (studentPic != null) ? FileImage(studentPic!) : null,
+                        radius: 80,
+                        backgroundColor: Colors.grey,
+                      ),
+                    ),
+                  ]
                 ),
               ),
               const Divider(
