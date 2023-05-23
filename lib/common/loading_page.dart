@@ -1,22 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class Loading extends StatefulWidget {
+class Loading extends StatelessWidget {
   const Loading({Key? key}) : super(key: key);
-
-  @override
-  State<Loading> createState() => _LoadingState();
-}
-
-class _LoadingState extends State<Loading> {
-  @override
-  void initState() {
-    super.initState();
-    // Delayed navigation to home page after 3 seconds
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/home');
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

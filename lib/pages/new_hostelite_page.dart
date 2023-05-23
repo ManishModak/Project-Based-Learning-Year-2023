@@ -25,6 +25,7 @@ class _NewStudentState extends State<NewStudent> {
   String mobileNo = '';
 
   File? studentPic;
+  double percentage=0;
 @override
 void dispose() {
   super.dispose();
@@ -35,11 +36,19 @@ void _submitForm() async {
   MainDatabase student = MainDatabase();
 
   UploadTask uploadTask = FirebaseStorage.instance.ref().child("pictures").child(id).child(id).putFile(studentPic!);
+
+  uploadTask.snapshotEvents.listen((TaskSnapshot snapshot) {
+    setState(() {
+      percentage = (snapshot.bytesTransferred/snapshot.totalBytes);
+    });
+  });
   TaskSnapshot taskSnapshot = await uploadTask;
   String downloadUrl =  await taskSnapshot.ref.getDownloadURL();
 
   student.addStudent(id: id, name: name, room: roomNo, branch: branch, mobile: mobileNo, url: downloadUrl);
-
+  setState(() {
+    percentage = 0;
+  });
 }
 
 @override
@@ -59,6 +68,7 @@ Widget build(BuildContext context) {
               Center(
                 child: CupertinoButton(
                   onPressed: () async {
+                    percentage = 0;
                     XFile? selectedImage = await ImagePicker().pickImage(source: ImageSource.camera);
 
                     if(selectedImage != null){
@@ -78,6 +88,16 @@ Widget build(BuildContext context) {
                     radius: 80,
                     backgroundColor: Colors.grey,
                   ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+                width: 500,
+                child: LinearProgressIndicator(
+                  value: percentage,
+                  backgroundColor: Colors.grey,
+                  minHeight: 10.0,
+                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                 ),
               ),
               const Divider(
