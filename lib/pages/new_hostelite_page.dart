@@ -9,6 +9,27 @@ import 'package:mat_security/services/main_database.dart';
 
 import '../common/constants.dart';
 
+class CircularProgress extends StatelessWidget {
+  final double percentage;
+
+  const CircularProgress({super.key, required this.percentage});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 180,
+      height: 180,
+      child: CircularProgressIndicator(
+        value: percentage,
+        backgroundColor: Colors.black45,
+        strokeWidth: 14,
+        valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+      ),
+    );
+  }
+}
+
+
 class NewStudent extends StatefulWidget {
   const NewStudent({Key? key}) : super(key: key);
 
@@ -66,38 +87,34 @@ Widget build(BuildContext context) {
           child: Column(
             children: [
               Center(
-                child: CupertinoButton(
-                  onPressed: () async {
-                    percentage = 0;
-                    XFile? selectedImage = await ImagePicker().pickImage(source: ImageSource.camera);
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CupertinoButton(
+                      onPressed: () async {
+                        percentage = 0;
+                        XFile? selectedImage = await ImagePicker().pickImage(source: ImageSource.camera);
 
-                    if(selectedImage != null){
-                      File convertedImage = File(selectedImage.path);
-                      setState(() {
-                        studentPic = convertedImage;
-                      });
-                    }
-                    else{
-                      if (kDebugMode) {
-                        print("Image not selected");
-                      }
-                    }
-                  },
-                  child: CircleAvatar(
-                    backgroundImage: (studentPic != null) ? FileImage(studentPic!) : null,
-                    radius: 80,
-                    backgroundColor: Colors.grey,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-                width: 500,
-                child: LinearProgressIndicator(
-                  value: percentage,
-                  backgroundColor: Colors.grey,
-                  minHeight: 10.0,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                        if(selectedImage != null){
+                          File convertedImage = File(selectedImage.path);
+                          setState(() {
+                            studentPic = convertedImage;
+                          });
+                        }
+                        else{
+                          if (kDebugMode) {
+                            print("Image not selected");
+                          }
+                        }
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: (studentPic != null) ? FileImage(studentPic!) : null,
+                        radius: 80,
+                        backgroundColor: Colors.grey,
+                      ),
+                    ),
+                    CircularProgress(percentage: percentage)
+                  ]
                 ),
               ),
               const Divider(
