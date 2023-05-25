@@ -25,7 +25,7 @@ class AuthService {
       User? user = result.user ;
       return _adminFromFirebaseUser(user!) ;
     }catch(e) {
-      print(e.toString());
+      // print(e.toString());
       return null ;
     }
   }

@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                 "MAT SECURITY" ,
                 style: TextStyle(
                   letterSpacing: 1.5,
-                  color: Colors.white,
+                  color: Colors.greenAccent,
                   fontSize: 30.0,
                   fontWeight: FontWeight.w400,
                 ),
@@ -76,12 +76,15 @@ class _LoginState extends State<Login> {
                   Expanded(
                     flex: 1,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.redAccent
+                      ),
                       child: const Text(
                         'LOGIN',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
+                          fontWeight: FontWeight.w400
                         ),
                       ),
                       onPressed: () async{
@@ -106,7 +109,9 @@ class _LoginState extends State<Login> {
                   Expanded(
                     flex: 1,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.redAccent
+                      ),
                       onPressed: () async {
                         if(_formKey.currentState!.validate()){
                           setState(() => loading = true);
@@ -128,6 +133,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
+                          fontWeight: FontWeight.w400
                         ),
                       ),
                     ),
