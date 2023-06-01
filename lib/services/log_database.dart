@@ -25,7 +25,7 @@ class LogDatabase{
     for (var doc in snapshot.docs) {
       Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
       if (data['id'] == id && data['inTime'] == null) {
-        await _fire.collection(formattedDate).doc(doc.id).update({
+          await _fire.collection(formattedDate).doc(doc.id).update({
           "inTime": formattedTime,
         });
         return;
