@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/constants.dart';
+
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
@@ -13,79 +15,64 @@ class _MenuState extends State<Menu>  {
   Widget build(BuildContext context)  {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black12,
-        appBar: AppBar(
-          backgroundColor: Colors.green[400],
-          title: const Text(
-              "Menu",
-            style: TextStyle(
-              letterSpacing: 1.25
-            ),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: Stack(
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                    gradient: appBarGradient
+                ),
+              ),
+              buildAppBar("New Hostilite")
+            ],
           ),
-          centerTitle: true,
-          elevation: 0,
         ),
         body: Column(
           children: [
-            const SizedBox(height: 10),
-            Card(
-              color: Colors.redAccent,
-              child: ListTile(
-                onTap: (){},
-                title: const Center(
-                  child: Text(
-                    "New Admin",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+            const SizedBox(height: 30),
+            SizedBox(
+              width: 390, // Specify the desired width
+              height: 50, // Specify the desired height
+              child: Container(
+                decoration: boxDecoration(),
+                child: menuCard("New Admin", "newAdmin", context),
               ),
             ),
-            Card(
-              color: Colors.redAccent,
-              child: ListTile(
-                onTap: (){
-                  Navigator.pushNamed(context, "/newStudent");
-                },
-                title: const Center(
-                  child: Text(
-                    "New Hostelite",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 390, // Specify the desired width
+              height: 50,
+              child: Container(
+                decoration: boxDecoration(),
+                child: menuCard("New Student","newStudent",context),
               ),
             ),
-            Card(
-              color: Colors.redAccent,
-              child: ListTile(
-                onTap: (){},
-                title: const Center(
-                  child: Text(
-                    "All Hostelite List",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 390, // Specify the desired width
+              height: 50,
+              child: Container(
+                decoration: boxDecoration(),
+                child: menuCard("Student's List","list",context),
               ),
             ),
-            Card(
-              color: Colors.redAccent,
-              child: ListTile(
-                onTap: (){
-                  Navigator.pushNamed(context, "/log");
-                },
-                title: const Center(
-                  child: Text(
-                    "Daily In/Out List",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 390, // Specify the desired width
+              height: 50,
+              child: Container(
+                decoration: boxDecoration(),
+                child: menuCard("Daily Log","log",context),
+              ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 390, // Specify the desired width
+              height: 50,
+              child: Container(
+                decoration: boxDecoration(),
+                child: menuCard("Manual Entry","entry",context),
               ),
             ),
           ],

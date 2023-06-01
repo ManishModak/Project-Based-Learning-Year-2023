@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:733231722253:android:edc090dd25c098ae71ca44",
+        "mobilesdk_app_id": "1:733231722253:android:fa97b0f5dc094cf871ca44",
         "android_client_info": {
-          "package_name": "com.example.mat_security"
+          "package_name": "com.mat_security"
         }
       },
       "oauth_client": [
@@ -30,6 +30,13 @@
             {
               "client_id": "733231722253-mpglv7n1rifi1dds54qmu23c45sdla2t.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "733231722253-c80tnotlj0fu6t56n46cau4paiv6njmm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.matSecurity"
+              }
             }
           ]
         }

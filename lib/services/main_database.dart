@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MainDatabase {
+
   final FirebaseFirestore _fire = FirebaseFirestore.instance;
 
   /*
